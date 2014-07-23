@@ -11,13 +11,15 @@ catch(err) {
     return;
 }
 
-bdecode(file_content, 0);
+var cursor = 0;
+var decoded_data = bdecode(file_content;
+
 
 /*
 * Decode function
 */
 
-function bdecode (data, cursor) {
+function bdecode (data) {
 	var first_char = data.charAt(cursor)
 	cursor++;
 
@@ -30,7 +32,6 @@ function bdecode (data, cursor) {
 				character = data.charAt(cursor);
 			}
 			console.log(parseInt(integer));
-			return cursor;
 			break;
 
 		case 'l':
@@ -40,7 +41,6 @@ function bdecode (data, cursor) {
 			}
 			// Skip the e
 			cursor++;
-			return cursor;
 			break;
 
 		case 'd':
@@ -49,7 +49,6 @@ function bdecode (data, cursor) {
 			}
 			// Skip the e
 			cursor++;
-			return cursor;
 			break;
 		default:
 			// Strings
@@ -66,7 +65,6 @@ function bdecode (data, cursor) {
 				cursor++;
 			}
 			console.log(str);
-			return cursor;
 	}
 }
 
