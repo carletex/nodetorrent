@@ -1,2 +1,4 @@
 filesfortesting/
 filesfortesting/*
+node_modules
+node_modules/*
