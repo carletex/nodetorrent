@@ -2,7 +2,6 @@
 
 // Required modules
 var fs = require('fs');
-var buffer = require('buffer');
 
 // Contants
 var i_CHAR = 105;
