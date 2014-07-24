@@ -13,7 +13,7 @@ var colon_CHAR = 58;
 var filename = process.argv[2];
 
 try {
-	var file_content = fs.readFileSync(filename);
+	var fileContent = fs.readFileSync(filename);
 }
 catch(err) {
     console.log('Something went wrong: ' + err);
@@ -21,32 +21,20 @@ catch(err) {
 }
 
 var cursor = 0;
-var decoded_data = bdecode(file_content);
-console.log(decoded_data);
-
-/**
- * Find the next ocurrence of value, starting onthe actual
- * cursor position
- */
-function findIndex(data, value) {
-	for (var i = cursor; i < data.length; i++){
-		if (data[i] === value) {
-			return i;
-		}
-	}
-}
+var stringData = fileContent.toString();
+var decodedData = bdecode(fileContent);
+console.log(decodedData);
 
 /**
  * Data decoder
  */
 function bdecode (data) {
-	var first_char = data[cursor];
-	cursor++;
+	var first_char = data[cursor++];
 
 	switch(first_char) {
 		case i_CHAR:
 			// Integers
-			var end = findIndex(data, e_CHAR);
+			var end = stringData.indexOf('e', cursor);
 			var value = data.slice(cursor, end);
 			cursor = end + 1;
 
@@ -75,7 +63,7 @@ function bdecode (data) {
 
 		default:
 			// Strings
-			var colon_position = findIndex(data, colon_CHAR);
+			var colon_position = stringData.indexOf(':', cursor);
 			var length_value = parseInt(data.slice(cursor - 1, colon_position).toString());
 			var value = data.slice(colon_position + 1, colon_position + length_value + 1);
 			cursor = colon_position + length_value + 1;
