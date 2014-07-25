@@ -1,13 +1,15 @@
 var expect = require("chai").expect;
-var bencoding = require("../lib/bencoding.js");
+var Bencoding = require("../lib/bencoding.js");
 
 describe("#decode()", function(){
 	it("should decode an integer", function(){
-	   var result = bencoding.bdecode('i1e');
+	   var decoder = new Bencoding();
+	   var result = decoder.decode('i1e');
 	   expect(result).to.eq(1);
 	});
 	it("should decode an string", function(){
-		var result2 = bencoding.bdecode('4:test');
-		expect(result2).to.eq(new Buffer('test'));
+		var decoder = new Bencoding();
+		var result = decoder.decode('4:test');
+		expect(result.toString()).to.eq('test');
 	});
 });
