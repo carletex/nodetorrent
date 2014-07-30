@@ -2,7 +2,7 @@
 
 // Required modules
 var fs = require('fs');
-var Bencoding = require("./lib/bencoding.js");
+var Bencoding = require("./lib/Bencoding.js");
 
 var filename = process.argv[2];
 

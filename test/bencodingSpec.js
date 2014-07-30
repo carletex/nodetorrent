@@ -1,17 +1,17 @@
 var expect = require("chai").expect;
-var Bencoding = require("../lib/bencoding.js");
+var Bencoding = require("../lib/Bencoding.js");
 
-describe("#decode()", function(){
+describe("decode", function(){
 	var decoder;
 
 	beforeEach(function () {
     	decoder = new Bencoding();
   	});
-	it("should return an empty buffer when passing an empty string", function(){
+	it("should return an empty buffer when passing an empty string to the decoder", function(){
 	   var result = decoder.decode('');
 	   expect(result).to.deep.eq(new Buffer(''));
 	});
-	it("should return an empty buffer when passing an empty buffer", function(){
+	it("should return an empty buffer when passing an empty buffer to the decoder", function(){
 	   var result = decoder.decode('');
 	   expect(result).to.deep.eq(new Buffer(''));
 	});
@@ -42,5 +42,5 @@ describe("#decode()", function(){
        	});
 	});
 
-
 });
+
