@@ -9,6 +9,7 @@
   "author": "",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "chai": "~1.9.1"
+    "chai": "~1.9.1",
+    "rsvp": "~3.0.9"
   }
 }
